@@ -1,0 +1,18 @@
+#PBS -S /bin/bash
+
+#PBS -V
+#PBS -q batch
+#PBS -N test_sec
+#PBS -l walltime=00:10:00
+#PBS -l nodes=marte:ppn=6
+
+source /etc/profile.d/modules.sh
+
+cd $PBS_O_WORKDIR
+
+make sec
+make test_sec N=1000
+make test_sec N=10000
+make test_sec N=50000
+make test_sec N=100000
+make test_sec N=200000
